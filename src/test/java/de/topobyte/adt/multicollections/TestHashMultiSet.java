@@ -33,15 +33,15 @@ public class TestHashMultiSet
 		System.out.println("Testing the HashMultiSet and its iterator");
 
 		HashMultiSet<Integer> hms = new HashMultiSet<Integer>();
-		hms.put(1);
-		hms.put(2);
-		hms.put(2);
-		hms.put(2);
-		hms.put(2);
-		hms.put(3);
-		hms.put(5);
-		hms.put(7);
-		hms.put(7);
+		hms.add(1);
+		hms.add(2);
+		hms.add(2);
+		hms.add(2);
+		hms.add(2);
+		hms.add(3);
+		hms.add(5);
+		hms.add(7);
+		hms.add(7);
 		System.out.println(hms);
 		Iterator<Integer> iterator = hms.iterator();
 		System.out.println(iterator);

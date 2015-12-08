@@ -39,9 +39,9 @@ public interface MultiSet<T> extends Iterable<T>
 	 * @param key
 	 *            the element to add.
 	 */
-	public void put(T key);
+	public void add(T key);
 
-	public void put(T key, int howOften);
+	public void add(T key, int n);
 
 	/**
 	 * Put all keys contained in <code>key</code> into the MultiSet once.
@@ -49,7 +49,9 @@ public interface MultiSet<T> extends Iterable<T>
 	 * @param keys
 	 *            a collection of keys.
 	 */
-	public void putAll(Collection<T> keys);
+	public void addAll(Collection<T> keys);
+
+	public void addAll(Collection<T> keys, int n);
 
 	/**
 	 * Remove <cod>key</code> from the MultiSet once.
@@ -58,6 +60,8 @@ public interface MultiSet<T> extends Iterable<T>
 	 *            the element to remove.
 	 */
 	public void remove(T key);
+
+	public void removeAll(Collection<? extends T> key);
 
 	/**
 	 * Remove key from the MultiSet once.
@@ -69,13 +73,17 @@ public interface MultiSet<T> extends Iterable<T>
 	 */
 	public void removeN(T key, int n);
 
+	public void removeAllN(Collection<? extends T> key, int n);
+
 	/**
 	 * Remove all occurrences of <code>key</code>.
 	 * 
 	 * @param key
 	 *            the element to remove.
 	 */
-	public void removeAll(T key);
+	public void removeOccurences(T key);
+
+	public void removeAllOccurences(Collection<? extends T> key);
 
 	/**
 	 * Get the number of times the element <code>key</code> is present in this

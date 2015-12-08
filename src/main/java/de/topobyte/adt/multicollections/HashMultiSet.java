@@ -66,7 +66,7 @@ public class HashMultiSet<T> implements MultiSet<T>
 	}
 
 	@Override
-	public void put(T key)
+	public void add(T key)
 	{
 		if (!map.containsKey(key)) {
 			map.put(key, 1);
@@ -76,7 +76,7 @@ public class HashMultiSet<T> implements MultiSet<T>
 	}
 
 	@Override
-	public void put(T key, int howOften)
+	public void add(T key, int howOften)
 	{
 		if (!map.containsKey(key)) {
 			map.put(key, howOften);
@@ -86,10 +86,18 @@ public class HashMultiSet<T> implements MultiSet<T>
 	}
 
 	@Override
-	public void putAll(Collection<T> keys)
+	public void addAll(Collection<T> keys)
 	{
 		for (T key : keys) {
-			put(key);
+			add(key);
+		}
+	}
+
+	@Override
+	public void addAll(Collection<T> keys, int howOften)
+	{
+		for (T key : keys) {
+			add(key, howOften);
 		}
 	}
 
@@ -108,12 +116,28 @@ public class HashMultiSet<T> implements MultiSet<T>
 	}
 
 	@Override
-	public void removeAll(T key)
+	public void removeAll(Collection<? extends T> c)
+	{
+		for (T key : c) {
+			remove(key);
+		}
+	}
+
+	@Override
+	public void removeOccurences(T key)
 	{
 		if (!map.containsKey(key)) {
 			return;
 		}
 		map.remove(key);
+	}
+
+	@Override
+	public void removeAllOccurences(Collection<? extends T> c)
+	{
+		for (T key : c) {
+			removeOccurences(key);
+		}
 	}
 
 	@Override
@@ -127,6 +151,14 @@ public class HashMultiSet<T> implements MultiSet<T>
 			map.remove(key);
 		} else {
 			map.put(key, count);
+		}
+	}
+
+	@Override
+	public void removeAllN(Collection<? extends T> c, int n)
+	{
+		for (T key : c) {
+			removeN(key, n);
 		}
 	}
 
