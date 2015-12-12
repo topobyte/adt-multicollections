@@ -53,7 +53,7 @@ public class HashMultiSet<T> implements MultiSet<T>
 	@Override
 	public boolean contains(T key)
 	{
-		return occurences(key) > 1;
+		return occurences(key) > 0;
 	}
 
 	@Override
