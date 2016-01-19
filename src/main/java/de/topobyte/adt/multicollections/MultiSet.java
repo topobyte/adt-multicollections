@@ -54,7 +54,7 @@ public interface MultiSet<T> extends Iterable<T>
 	public void addAll(Collection<T> keys, int n);
 
 	/**
-	 * Remove <cod>key</code> from the MultiSet once.
+	 * Remove <code>key</code> from the MultiSet once.
 	 * 
 	 * @param key
 	 *            the element to remove.
