@@ -38,7 +38,7 @@ public class HashMultiValMap<K, V> implements MultiValMap<K, V>, Serializable
 
 	private static final long serialVersionUID = -6028202660344028763L;
 
-	Map<K, Set<V>> data = new HashMap<K, Set<V>>();
+	Map<K, Set<V>> data = new HashMap<>();
 
 	@Override
 	public boolean containsKey(K key)
@@ -59,7 +59,7 @@ public class HashMultiValMap<K, V> implements MultiValMap<K, V>, Serializable
 		if (data.containsKey(key)) {
 			values = data.get(key);
 		} else {
-			values = new HashSet<V>();
+			values = new HashSet<>();
 			data.put(key, values);
 		}
 		values.add(value);
@@ -72,7 +72,7 @@ public class HashMultiValMap<K, V> implements MultiValMap<K, V>, Serializable
 		if (data.containsKey(key)) {
 			values = data.get(key);
 		} else {
-			values = new HashSet<V>();
+			values = new HashSet<>();
 			data.put(key, values);
 		}
 		values.addAll(vs);

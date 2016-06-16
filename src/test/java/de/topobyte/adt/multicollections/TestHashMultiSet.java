@@ -32,7 +32,7 @@ public class TestHashMultiSet
 	{
 		System.out.println("Testing the HashMultiSet and its iterator");
 
-		HashMultiSet<Integer> hms = new HashMultiSet<Integer>();
+		HashMultiSet<Integer> hms = new HashMultiSet<>();
 		hms.add(1);
 		hms.add(2);
 		hms.add(2);

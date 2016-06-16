@@ -36,7 +36,7 @@ import java.util.Set;
 public class HashMultiSet<T> implements MultiSet<T>
 {
 
-	Map<T, Integer> map = new HashMap<T, Integer>();
+	Map<T, Integer> map = new HashMap<>();
 
 	public HashMultiSet()
 	{
@@ -171,7 +171,7 @@ public class HashMultiSet<T> implements MultiSet<T>
 	@Override
 	public Iterator<T> iterator()
 	{
-		return new HashMultiSetIterator<T>(this);
+		return new HashMultiSetIterator<>(this);
 	}
 
 	private class HashMultiSetIterator<K> implements Iterator<K>
@@ -185,7 +185,7 @@ public class HashMultiSet<T> implements MultiSet<T>
 		public HashMultiSetIterator(HashMultiSet<K> hms)
 		{
 			this.hms = hms;
-			keys = new HashSet<K>();
+			keys = new HashSet<>();
 			for (K key : hms.keySet()) {
 				keys.add(key);
 			}

@@ -40,7 +40,7 @@ import java.util.Set;
 public class CountingMultiValMap<K, L>
 {
 
-	Map<K, Map<L, Integer>> storage = new HashMap<K, Map<L, Integer>>();
+	Map<K, Map<L, Integer>> storage = new HashMap<>();
 
 	/**
 	 * Add the tag (key1, key2) to the MultiValMap.
@@ -56,7 +56,7 @@ public class CountingMultiValMap<K, L>
 		if (storage.containsKey(key1)) {
 			keyStore = storage.get(key1);
 		} else {
-			keyStore = new HashMap<L, Integer>();
+			keyStore = new HashMap<>();
 			storage.put(key1, keyStore);
 		}
 		int count = 1;
@@ -120,7 +120,7 @@ public class CountingMultiValMap<K, L>
 	 */
 	public Collection<L> values()
 	{
-		HashSet<L> values = new HashSet<L>();
+		HashSet<L> values = new HashSet<>();
 		for (Entry<K, Map<L, Integer>> entry : storage.entrySet()) {
 			Map<L, Integer> map = entry.getValue();
 			Set<L> newValues = map.keySet();
