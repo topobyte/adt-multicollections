@@ -24,6 +24,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * A data-structure to collect Tags. A tag consists of key + value. The
  * structure counts the number of times a pair has been added to the
@@ -39,6 +42,9 @@ import java.util.Set;
  */
 public class CountingMultiValMap<K, L>
 {
+
+	final static Logger logger = LoggerFactory
+			.getLogger(CountingMultiValMap.class);
 
 	Map<K, Map<L, Integer>> storage = new HashMap<>();
 
@@ -99,12 +105,12 @@ public class CountingMultiValMap<K, L>
 	public void remove(K key1, L key2)
 	{
 		if (!storage.containsKey(key1)) {
-			System.out.println("unable to remove 1");
+			logger.debug("unable to remove 1");
 			return;
 		}
 		Map<L, Integer> keyStore = storage.get(key1);
 		if (!keyStore.containsKey(key2)) {
-			System.out.println("unable to remove 2");
+			logger.debug("unable to remove 2");
 			return;
 		}
 		int count = keyStore.get(key2) - 1;
